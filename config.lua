@@ -48,8 +48,9 @@ Config.ArchaeologyHubs = {
 -- Archaeology Book
 ---------------------------------------------
 -- Configuration for the archaeology book
+Config.ItemBook = 'archeology_book' -- Item name for the archaeology book
 Config.Book = {
-    ['archeology_book'] = {
+    ['archeology_book'] = {  -- DON'T TOUCH UNLESS YOU KNOW WHAT YOU ARE DOING
         ['pages'] = {
             { pageName = "1", type = 'hard', source = 'local' }, --Front Cover
             { pageName = "2", type = 'hard', source = 'local' }, --Inside Front Cover

@@ -1,6 +1,5 @@
 local RSGCore = exports['rsg-core']:GetCoreObject()
 local DiscArcSite = {}
-local bookitem = Config.Book
 lib.locale()
 
 ---------------------------------
@@ -56,7 +55,7 @@ RSGCore.Functions.CreateCallback('qc-archaeology:server:checkarc', function(sour
     cb(exists)
 end)
 
-RSGCore.Functions.CreateUseableItem(bookitem, function(source, item)
+RSGCore.Functions.CreateUseableItem(Config.ItemBook, function(source, item)
     local Player = RSGCore.Functions.GetPlayer(source)
     local citizenid = Player.PlayerData.citizenid
 
