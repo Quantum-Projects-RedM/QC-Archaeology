@@ -19,3 +19,7 @@ Welcome to the **Archaeology Script** for RedM! This script introduces immersive
 2. Install any necessary images to your inventory and sql (see the INSTALLATION folder first).
 3. Add the script to your server files.
 4. Ensure QC-Archaeology is started in your server configuration.
+
+---
+
+[Preview](https://www.youtube.com/watch?v=QAip-I-MHI4)
