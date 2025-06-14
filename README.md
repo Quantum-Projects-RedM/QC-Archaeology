@@ -1,7 +1,10 @@
 # 🏺 Archaeology Script for RedM (RSG Framework)
 
 Welcome to the **Archaeology Script** for RedM! This script introduces immersive archaeological exploration and artifact discovery to your server, fully integrated with the **RSG Framework**.
+---
+### Need Support? join our discord!
 
+- Discord: https://discord.gg/kJ8ZrGM8TS
 ---
 
 ## 📋 Features
