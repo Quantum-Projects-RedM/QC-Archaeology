@@ -1,28 +1,36 @@
-# 🏺 Archaeology Script for RedM (RSG Framework)
+# QC-Archaeology
 
-Welcome to the **Archaeology Script** for RedM! This script introduces immersive archaeological exploration and artifact discovery to your server, fully integrated with the **RSG Framework**.
----
-### Need Support? join our discord!
+RedM archaeology script with interactive book system and minigame mechanics.
 
-- Discord: https://discord.gg/kJ8ZrGM8TS
----
+## Features
 
-## 📋 Features
-- **Digging Animations**: Realistic excavation actions to enhance roleplay.
-- **Artifact Discovery**: Search for and collect rare artifacts at dig sites.
-- **Immersive Effects**: Visual and audio cues for digging and finding items.
-- **Interactive Minigame**: Skill-based minigame for uncovering artifacts.
-- **Randomized Finds**: Chance-based system for common and rare discoveries.
+- Archaeological site discovery with minigame
+- Interactive book with page turning animations and sound
+- React-based NUI system
+- Persistent data storage with RSGCore
 
----
+## Technical Stack
 
-## ⚙️ Installation
+- **Backend**: CfxLua for RedM
+- **Frontend**: React 18 with Webpack 5
+- **Database**: MySQL with RSGCore integration  
+- **UI**: Turn.js for book animations
 
-1. Ensure you have all the required files.
-2. Install any necessary images to your inventory and sql (see the INSTALLATION folder first).
-3. Add the script to your server files.
-4. Ensure QC-Archaeology is started in your server configuration.
+## Installation
 
----
+1. Download and extract to your resources folder
+2. Install items to inventory and import SQL (see INSTALLATION folder)
+3. Add `ensure QC-Archaeology` to server.cfg
+4. Build NUI assets:
+   ```bash
+   cd html
+   npm install
+   npm run build
+   ```
+5. Restart server
 
-[Preview](https://www.youtube.com/watch?v=QAip-I-MHI4)
+## Dependencies
+
+- RSGCore Framework
+- MySQL database
+- Node.js (for building NUI)

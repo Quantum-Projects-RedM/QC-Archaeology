@@ -59,27 +59,31 @@ RSGCore.Functions.CreateUseableItem(Config.ItemBook, function(source, item)
     local Player = RSGCore.Functions.GetPlayer(source)
     local citizenid = Player.PlayerData.citizenid
 
-    -- Query the database to get discovered pages
-    local discoveredPages = MySQL.Sync.fetchAll("SELECT arcid FROM QC_Archaeology WHERE citizenid = @citizenid", {
+    -- Query the database to get discovered sites
+    local discoveredSites = MySQL.Sync.fetchAll("SELECT arcid FROM QC_Archaeology WHERE citizenid = @citizenid", {
         ['@citizenid'] = citizenid
     })
+    
     local pagesToSend = {}
+    -- Always include cover and intro pages
     table.insert(pagesToSend, { source = 'local', type = 'hard', pageName = '1' })
     table.insert(pagesToSend, { source = 'local', type = 'hard', pageName = '2' })
     table.insert(pagesToSend, { source = 'local', type = 'normal', pageName = '3' })
-    for _, discovery in ipairs(discoveredPages) do
+    
+    -- Add pages for discovered sites
+    for _, discovery in ipairs(discoveredSites) do
         for _, site in pairs(Config.ArcSites) do
-            if site.arcid == discovery.arcid then
-                -- Use the givenpage from the site configuration
+            if site.arcid == discovery.arcid and site.givenpage and site.givenpage ~= '' then
                 table.insert(pagesToSend, {
-                    source = 'local',  -- or 'web' based on your requirement
-                    type = 'normal',   -- Set the type to normal for discovered pages
-                    pageName = site.givenpage  -- The page number to add
+                    source = 'local',
+                    type = 'normal',
+                    pageName = site.givenpage
                 })
             end
         end
     end
 
+    -- Always include back cover
     table.insert(pagesToSend, { source = 'local', type = 'hard', pageName = '30' })
 
     TriggerClientEvent("qc-archaeology:client:OpenBook", source, "archeology_book", pagesToSend)
@@ -104,6 +108,7 @@ RegisterNetEvent('qc-archaeology:server:givereward', function(arcid, foundFossil
         if site.arcid == arcid then
             itemToGive = site.item
             givenPage = site.givenpage
+            print("DEBUG: Found site " .. arcid .. " with item: " .. (itemToGive or "nil") .. " and page: " .. (givenPage or "nil"))
             break
         end
     end
@@ -117,13 +122,19 @@ RegisterNetEvent('qc-archaeology:server:givereward', function(arcid, foundFossil
         ['@arcid'] = arcid
     })
     if hasDiscovered == 0 and foundFossil then
+        -- Add to archaeology discoveries
         MySQL.Async.execute("INSERT INTO QC_Archaeology (citizenid, arcid, time_found) VALUES (@citizenid, @arcid, @time_found)", {
             ['@citizenid'] = citizenid,
             ['@arcid'] = arcid,
             ['@time_found'] = os.date('%Y-%m-%d %H:%M:%S')
         })
-        TriggerClientEvent('qc-archaeology:client:AddPageToBook', src, givenPage)  -- Use the givenPage variable
-        TriggerClientEvent('ox_lib:notify', src, {title = 'YOU DISCOVERED A SOMETHING!', type = 'success', icon = 'fa-solid fa-magnifying-glass', iconAnimation = 'shake', duration = 7000 })
+        
+        -- Page will be added to book automatically when they open it (based on discovered sites)
+        if givenPage and givenPage ~= '' then
+            TriggerClientEvent('ox_lib:notify', src, {title = 'New page added to your archaeology book! Page: ' .. givenPage, type = 'success', icon = 'fa-solid fa-book', iconAnimation = 'shake', duration = 5000 })
+        end
+        
+        TriggerClientEvent('ox_lib:notify', src, {title = 'YOU DISCOVERED SOMETHING!', type = 'success', icon = 'fa-solid fa-magnifying-glass', iconAnimation = 'shake', duration = 7000 })
     end
     if sawFossilImage then
         Player.Functions.AddItem(itemToGive, 1)
@@ -141,7 +152,7 @@ RegisterNetEvent('qc-archaeology:server:givereward', function(arcid, foundFossil
             -- Common item reward logic
             local randomCommonItem = Config.CommonRewardItems[math.random(#Config.CommonRewardItems)]
             Player.Functions.AddItem(randomCommonItem, 1)
-            TriggerClientEvent('rsg-inventory: client:ItemBox', src, RSGCore.Shared.Items[randomCommonItem], 'add', 1)
+            TriggerClientEvent('rsg-inventory:client:ItemBox', src, RSGCore.Shared.Items[randomCommonItem], 'add', 1)
             TriggerEvent('rsg-log:server:CreateLog', 'mining', locale('sv_lang_3'), 'green', firstname..' '..lastname..' ('..citizenid..locale('sv_lang_2')..RSGCore.Shared.Items[randomCommonItem].label)
         end
     else
@@ -206,3 +217,5 @@ end)
 RegisterNetEvent('qc-archaeology:server:resetarcsites', function()
     DiscArcSite = {}
 end)
+
+

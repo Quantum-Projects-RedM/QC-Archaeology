@@ -286,16 +286,11 @@ RegisterNetEvent('qc-archaeology:client:OpenBook', function(bookName, pages)
         pages = allPages,
         size = Config.Book[bookName]["size"],
     })
+    --print("Book opened: " .. bookName)
 end)
 
-RegisterNetEvent('qc-archaeology:client:AddPageToBook', function(pageToAdd)
-    local bookName = "archeology_book"
-    SendNUIMessage({
-        event = 'addPage',
-        book = bookName,
-        page = pageToAdd
-    })
-end)
+-- Book pages are now handled server-side with persistent storage
+-- No client-side page management needed
 
 RegisterNUICallback('escape', function(data, cb)
     local ped = PlayerPedId()

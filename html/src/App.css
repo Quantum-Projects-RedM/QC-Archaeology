@@ -1,0 +1,195 @@
+/* Import font exactly like original minigame */
+@import url('https://fonts.cdnfonts.com/css/chinese-rocks');
+
+/* Global styles from original minigame/index.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Chinese Rocks Rg', sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* Book system styles - centered properly */
+.book-system {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+/* Minigame system styles - exactly like original minigame/index.css */
+.minigame-system {
+    /* All minigame styles contained within this wrapper */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.display {
+    display: none !important;
+}
+
+.inner {
+    margin: 14vh -16vh;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; /* Increase width to accommodate instructions */
+    height: 430px;
+    background-image: url('./img/minigame/back-1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    padding: 20px;
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.game-container {
+    text-align: center;
+}
+
+canvas {
+    border: 3px solid #837c7c;
+    cursor: url('./img/minigame/brush.png'), auto;
+    background: #1a1a1a;
+    margin: 34px 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-box {
+    background-image: url('./img/minigame/inst-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    padding: 25px;
+    width: 380px;
+    height: 500px;
+    margin-left: 520px;
+    margin-top: 430px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.title-box {
+    background-image: url('./img/minigame/tit-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    padding: 20px;
+    width: 480px;
+    height: 180px;
+    margin-left: 1040px;
+    margin-top: -640px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+/* .inner {
+    transform: translate3d(306px, 130px, 0px);
+    margin-left: -325px;
+} */
+
+.chat-box h3 {
+    color: rgb(0 0 0);
+    font-size: 4vh;
+    margin-top: 4vh;
+    margin-left: 2.5vh;
+    text-shadow: 3px 3px 6px rgb(0 0 0 / 70%);
+}
+
+.title-box h2 {
+    color: rgb(0, 0, 0);
+    font-size: 3.5vh;
+    margin-top: 3.5vh;
+    margin-left: 5vh;
+    text-shadow: 3px 3px 6px rgb(0 0 0 / 70%);
+}
+
+#instructionsBox {
+    background-color: #fff3e000;
+}
+
+#titlebox {
+    background-color: #fff3e000;
+}
+
+p {
+    color: #000000;
+    margin-top: 3px;
+    padding-top: 20px;
+    padding-left: 28px;
+    padding-right: 33px;
+    font-size: 2vh;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 30%);
+}
+
+/* Minigame elements are now controlled by React state visibility */
+
+/* Turn.js book styles */
+.flipbook {
+    margin-left: 0px;
+}
+
+.flipbook .page {
+    width: 100%;
+    height: 100%;
+    background: white;
+    line-height: 1.4;
+}
+
+.flipbook .page img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.flipbook .hard {
+    background: #ccc !important;
+    color: #333;
+}
+
+/* App container */
+.app {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Minigame system */
+.minigame-system {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}

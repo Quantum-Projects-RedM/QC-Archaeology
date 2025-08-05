@@ -2,10 +2,11 @@ fx_version 'cerulean'
 rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
 game 'rdr3'
 
-description 'QC Archaeology'
+description 'A Archeology script with a custom minigame and tracking of all bones in RDR3 for dinosaurs'
+author 'Artmines- Quantum Projects Lead'
 quantum_discord 'https://discord.gg/kJ8ZrGM8TS'
 
-version '1.0.0'
+version '2.0.0'
 
 shared_scripts {
     '@ox_lib/init.lua',
@@ -28,18 +29,18 @@ dependencies {
 }
 
 files {
-    'html/index.html',
+    'html/dist/index.html',
     'locales/*.json',
-    'html/img/**/*.png',
-    'html/img/minigame/*.png',
-    'html/img/minigame/fossils/*.png',
-    'html/img/minigame/*.jpg',
-    'html/*.css',
-    'html/*.png',
-    'html/*.js',
-    'html/*.mp3'
+    'html/dist/img/**/*.png',
+    'html/dist/img/minigame/*.png',
+    'html/dist/img/minigame/fossils/*.png',
+    'html/dist/img/minigame/*.jpg',
+    'html/dist/img/archeology_book/*.png',
+    'html/dist/*.js',
+    'html/dist/*.mp3',
+    'html/dist/*.png'
 }
 
-ui_page 'html/index.html'
+ui_page 'html/dist/index.html'
 
 lua54 'yes'

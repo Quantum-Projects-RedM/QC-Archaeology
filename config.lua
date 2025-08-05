@@ -37,7 +37,7 @@ Config.RareRewardItems = {
 'arrowhead_bone', 'fossil_coral', 'fossil_pet_wood_rainbow',
 }
 ---------------------------------------------
--- Archaeology Hubs
+-- Archaeology Hubs   STILL IN PROGRESS
 ---------------------------------------------
 -- Locations where players can interact with archaeology hubs
 Config.ArchaeologyHubs = {
@@ -103,14 +103,14 @@ Config.ArcSites = {
         coords = vector3(284.98, -436.31, 92.27), -- Coordinates of the site 
         IPL = -891504611, -- IPL identifier for the site
         item = 'fossil_trilobit', -- Item that can be found at this site
-        chance = 23, -- Chance of finding the item
+        chance = 100, -- Chance of finding the item
         givenpage = '4' -- Page number given for this site
     },
     { -- Heartlands South Gorge Bone
         arcid = 'Arch_Bone_24',  
         coords = vector3(441.34, -162.94, 119.24), -- 
         IPL = 1393010249,
-        item = 'fossil_old',
+        item = 'fossil_bivalve', -- fossil_bivalve is used alot since we didnt make all the images yet
         chance = 67,  
         givenpage = '5'
     },
@@ -250,7 +250,7 @@ Config.ArcSites = {
         chance = 19,  
         givenpage = '22'
     },
---[[     { -- Big Valley Northern Cave Bone
+--[[     { -- Big Valley Northern Cave Bone              --REMOVED UNTIL WE FIGURE OUT HOW TO MAKE IT WORK INTERESTING LOCATION 
         arcid = 'Arch_Bone_Myst7',  
         coords = vector3(-1518.27, 743.37, 125.19),
         item = 'fossil_tooth_mega',
@@ -269,7 +269,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_Myst9',  
         coords = vector3(-2314.13, -15.19, 255.55),
         IPL = 320262265,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = '25'
     },
@@ -277,7 +277,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_10',  
         coords = vector3(-3045.58, -2286.62, 47.58),
         IPL = 191871729,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = '26'
     },
@@ -285,7 +285,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_11',  
         coords = vector3(-2693.42, -3191.96, -7.87),
         IPL = -1078418763,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = '27'
     },
@@ -293,7 +293,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_26',  
         coords = vector3(-3571.25, -3605.22, 21.38),
         IPL = -415281478,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance =  5,  
         givenpage = '28'
     },
@@ -301,7 +301,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_09',  
         coords = vector3(-4211.60, -2883.63, 11.04),
         IPL = -1434912930,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = '29'
     },
@@ -309,7 +309,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_08',  
         coords = vector3(-4437.22, -2217.04, 40.15),
         IPL = 1934461192,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = ''
     },
@@ -317,7 +317,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_27',  
         coords = vector3(-4439.24, -3663.41, 57.23),
         IPL = -722949619,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = ''
     },
@@ -325,7 +325,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_28',  
         coords = vector3(-5279.74, -2692.40, 15.73),
         IPL = 202086482,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = ''
     },
@@ -333,7 +333,7 @@ Config.ArcSites = {
         arcid = 'Arch_Bone_29',  
         coords = vector3(-5392.23, -3052.81, 11.93),
         IPL = -87394864,
-        item = 'fossil_old',
+        item = 'fossil_bivalve',
         chance = 5,  
         givenpage = ''
     },
