@@ -250,13 +250,13 @@ Config.ArcSites = {
         chance = 19,  
         givenpage = '22'
     },
-    { -- Big Valley Northern Cave Bone
+--[[     { -- Big Valley Northern Cave Bone
         arcid = 'Arch_Bone_Myst7',  
         coords = vector3(-1518.27, 743.37, 125.19),
         item = 'fossil_tooth_mega',
         chance = 5,  
         givenpage = '23'
-    },
+    }, ]]
     { -- Big Valley Rocky Slope Bone
         arcid = 'Arch_Bone_Myst8',  
         coords = vector3(-2392.85, 325.83, 201.70),
