@@ -13,7 +13,6 @@ RedM archaeology script with interactive book system and minigame mechanics.
 
 - **Backend**: CfxLua for RedM
 - **Frontend**: React 18 with Webpack 5
-- **Database**: MySQL with RSGCore integration  
 - **UI**: Turn.js for book animations
 
 ## Installation
