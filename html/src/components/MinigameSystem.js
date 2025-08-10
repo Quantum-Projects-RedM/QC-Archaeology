@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 const MinigameSystem = ({ rockImageSrc, onComplete }) => {
   const canvasRef = useRef(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [canvasSize, setCanvasSize] = useState({ width: 400, height: 320 });
   
   // All variables from original minigame.js
   const gameStateRef = useRef({
@@ -23,12 +24,35 @@ const MinigameSystem = ({ rockImageSrc, onComplete }) => {
     dirtTextureImage: null
   });
 
+  // Responsive canvas sizing based on screen resolution
+  useEffect(() => {
+    const updateCanvasSize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      if (width === 1920 && height === 1080) {
+        setCanvasSize({ width: 350, height: 280 });
+      } else if (width === 2560 && height === 1440) {
+        setCanvasSize({ width: 400, height: 320 });
+      } else if (width < 1920) {
+        setCanvasSize({ width: 320, height: 256 });
+      } else {
+        setCanvasSize({ width: 500, height: 400 });
+      }
+    };
+    
+    updateCanvasSize();
+    window.addEventListener('resize', updateCanvasSize);
+    
+    return () => window.removeEventListener('resize', updateCanvasSize);
+  }, []);
+
   useEffect(() => {
     if (!rockImageSrc || isInitialized) return;
     
     initializeGame();
     setIsInitialized(true);
-  }, [rockImageSrc, isInitialized]);
+  }, [rockImageSrc, isInitialized, canvasSize]);
 
   // Exact copy of initializeCanvases function from original
   const initializeCanvases = () => {
@@ -371,8 +395,8 @@ const MinigameSystem = ({ rockImageSrc, onComplete }) => {
           <canvas 
             ref={canvasRef}
             id="rockCanvas" 
-            width="400" 
-            height="320"
+            width={canvasSize.width} 
+            height={canvasSize.height}
           />
         </div>
       </div>

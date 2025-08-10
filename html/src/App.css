@@ -53,7 +53,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px; /* Increase width to accommodate instructions */
+    width: 600px;
     height: 430px;
     background-image: url('./img/minigame/back-1.png');
     background-size: cover;
@@ -88,7 +88,6 @@ canvas {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* border: 1px solid #ccc; */
     border-radius: 8px;
     padding: 25px;
     width: 380px;
@@ -103,7 +102,6 @@ canvas {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* border: 1px solid #ccc; */
     border-radius: 8px;
     padding: 20px;
     width: 480px;
@@ -192,4 +190,115 @@ p {
     width: 100vw;
     height: 100vh;
     z-index: 1000;
+}
+
+/* Media queries optimized for common gaming resolutions */
+
+/* 1920x1080 (Full HD) - Most common gaming resolution */
+@media (min-width: 1920px) and (max-width: 1920px) and (min-height: 1080px) and (max-height: 1080px) {
+    .container {
+        width: 500px;
+        height: 380px;
+    }
+    .chat-box {
+        width: 320px;
+        height: 400px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -600px;
+        margin-top: -200px;
+    }
+    .title-box {
+        width: 360px;
+        height: 140px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -180px;
+        margin-top: -350px;
+    }
+    canvas {
+        width: 350px !important;
+        height: 280px !important;
+    }
+}
+
+/* 2560x1440 (2K/1440p) - Common high-res gaming */
+@media (min-width: 2560px) and (max-width: 2560px) and (min-height: 1440px) and (max-height: 1440px) {
+    .container {
+        width: 600px;
+        height: 450px;
+    }
+    .chat-box {
+        width: 380px;
+        height: 500px;
+        margin-left: 520px;
+        margin-top: 450px;
+    }
+    .title-box {
+        width: 480px;
+        height: 180px;
+        margin-left: 1040px;
+        margin-top: -650px;
+    }
+    canvas {
+        width: 400px !important;
+        height: 320px !important;
+    }
+}
+
+/* Fallback for other wide resolutions */
+@media (min-width: 1080px) and (max-width: 1919px) {
+    .container {
+        width: 450px;
+        height: 350px;
+    }
+    .chat-box {
+        width: 300px;
+        height: 400px;
+        margin-left: 380px;
+        margin-top: 350px;
+    }
+    .title-box {
+        width: 380px;
+        height: 140px;
+        margin-left: 750px;
+        margin-top: -490px;
+    }
+    canvas {
+        width: 320px !important;
+        height: 256px !important;
+    }
+}
+
+/* Ultra-wide and larger displays */
+@media (min-width: 2561px) {
+    .container {
+        width: 700px;
+        height: 520px;
+    }
+    .chat-box {
+        width: 450px;
+        height: 580px;
+        margin-left: 620px;
+        margin-top: 520px;
+    }
+    .title-box {
+        width: 560px;
+        height: 210px;
+        margin-left: 1240px;
+        margin-top: -750px;
+    }
+    canvas {
+        width: 500px !important;
+        height: 400px !important;
+    }
+}
+
+/* Additional responsive scaling for canvas */
+canvas {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
